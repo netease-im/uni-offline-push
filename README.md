@@ -4,7 +4,7 @@ UniApp推送Demo。
 1. 在各大手机厂商开发平台上，创建安卓应用
 2. 在云信业务后台配置推送证书。
 
-## 下载仓库
+## 下载仓库及依赖
 1. git clone git@github.com:netease-im/uni-offline-push.git
 2. cd uni-offline-push
 3. npm install
@@ -33,7 +33,7 @@ UniApp推送Demo。
 3. 选择连接的手机
 4. 运行应用
 
-## 操作
+## 连接IM & 接收推送
 1. 打开应用后，设置账户名称
 2. 点击连接
 3. 连接后，杀死应用
