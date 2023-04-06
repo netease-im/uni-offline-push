@@ -1,0 +1,66 @@
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.logo {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+	}
+	
+	.content .section {
+		width: 100%;
+		margin-bottom: 4px;
+	}
+	
+	.content .section .left, .content .section .right {
+		width: 48%;
+		display: inline-block;
+		vertical-align: top;
+		height: 40px;
+		line-height: 40px;
+	}
+	
+	.content .section .center {
+		margin: auto;
+		width: fit-content;
+	}
+	
+	.content .section .left {
+		text-align: right;
+		margin-right: 8px;
+	}
+
+	.content .section .input {
+		display: inline-block;
+		height: 40px;
+		line-height: 40px;
+		vertical-align: top;
+		margin-left: 8px;
+	}
+	
+	.content .section .btn {
+		width: 100px;
+		margin-top: 8px;
+		margin-right: 8px;
+	}
+	
+	.content .section .connect {
+		background: blue;
+		color: white;
+	}
+	
+	.content .section .destroy {
+		background: brown;
+		color: white;
+	}
+	
+	.content .log-wrap {
+		max-height: 70vh;
+	}
