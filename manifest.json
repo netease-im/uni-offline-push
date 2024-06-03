@@ -56,8 +56,8 @@
         },
         "nativePlugins" : {
             "NIMUniPlugin" : {
-                "PUSH_VIVO_APPID" : "103397457",
-                "PUSH_VIVO_APPKEY" : "a51da7ed008d22de3ad7937be1e707f7",
+                "PUSH_VIVO_APPID" : "4444",
+                "PUSH_VIVO_APPKEY" : "555555",
                 "__plugin_info__" : {
                     "name" : "NIMUniPlugin",
                     "description" : "uni消息推送插件",

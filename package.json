@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nim-web-sdk-ng": "^0.12.3"
+    "nim-web-sdk-ng": "^0.17.0"
   }
 }
