@@ -1,40 +1,65 @@
-UniApp推送Demo。
+UniApp推送Demo
 
-## 准备工作
-1. 在各大手机厂商开发平台上，创建安卓应用
-2. 在云信业务后台配置推送证书。
+## 安装依赖
 
-## 下载仓库及依赖
-1. git clone git@github.com:netease-im/uni-offline-push.git
-2. cd uni-offline-push
-3. npm install
+npm install
 
-## 设置HBuilderX
-1. 打开HBuilderX，导入该仓库
-2. 点击 manifest.json，基础配置，选择 重新获取 uni-app 应用标识
-3. 点击 manifest.json，选择 App 原生插件配置，选择本地插件，导入 NIMUniPlugin
+## 启动项目
 
-## 配置推送参数
-1. 点击 manifest.json，选择 App 原生插件配置，设置 VIVO 推送参数
-2. 点击 pages/index/config.js，设置其他厂商的推送参数。certificateName为云信业务后台配置的推送证书名称
-3. 在 nativeplugins/android/assets 中，下载华为的推送配置文件，并替换该仓库的 agconnect-services.json 文件
+注意去 pages/index/index.vue 修改成自己的登录信息和推送配置
 
-## 制作自定义基座
-1. 在 HbuilderX 中打开当前项目，选择 运行 -> 运行到手机或模拟器 -> 制作自定义调试基座
-2. 在弹窗中填入对应信息。注意，Android包名，和iOS bundleId应该和云信业务后台，以及各大厂商中注册的保持一致
-3. 等待自定义基座制作完成
+```
+const YOUR_ACCOUNT = 'cs3'
+const APPKEY = 'fe41664*********1847ad2547'
+const STATIC_TOKEN = 'e10adc394*******e057f20f883e'
+const OFFLINE_PUSH_CONFIG = {
+  miPush: {
+    appId: '2882*****40056',
+    appKey: '518*****056',
+    certificateName: '***_MI_PUSH'
+  },
+  vivoPush: {
+    certificateName: '***_VIVO_PUSH'
+  },
+  oppoPush: {
+    appId: '34**155',
+    appKey: '6clw0*****488o0os',
+    secret: 'e163705*******C440A94673',
+    certificateName: '****_OPPO_PUSH'
+  },
+  hwPush: {
+    appId: '104***65',
+    certificateName: '****_HW_PUSH'
+  },
+  fcmPush: {
+    certificateName: '****_FCM_V0'
+  },
+  mzPush: {
+    appId: '11***10',
+    appKey: '282bd********bbf9d2369',
+    certificateName: '****_MZ_PUSH'
+  },
+  honorPush: {
+    certificateName: '****_HONOR_PUSH'
+  },
+  apns: {
+    certificateName: 'NIM****_DEV'
+  }
+}
+```
 
-## 配置 IM 参数
-1. 点击 pages/index/config.js，设置IM参数。应用默认的账号名为 test。该参数可以在Demo的应用界面中手动修改
+“运行” -> "运行到 Android 基座" -> “使用自定义基座”
 
-## 运行应用
-1. 在 HbuilderX 中打开当前项目，选择 运行 -> 运行到手机或模拟器 -> 运行到Android/iOS App基座
-2. 选择自定义基座
-3. 选择连接的手机
-4. 运行应用
 
-## 连接IM & 接收推送
-1. 打开应用后，设置账户名称
-2. 点击连接
-3. 连接后，杀死应用
-4. 用另一个设备给刚刚登录的账号发送信息（带有推送内容），刚刚的设备应该收到一条离线推送提醒
+## 注意事项
+
+1. 截止 25/07/23 日前推送插件版本最新为 1.1.3, 可以检查云信官网看看有没有更新的 [实现 uni-app 离线推送](https://doc.yunxin.163.com/messaging2/guide/zc4MTg5MDY?platform=client#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE-uni-app-%E5%B7%A5%E7%A8%8B)
+2. 本工程使用前需要制作一份自定义基座. 打基座的过程中会因为 uniapp 应用标识时 __UNI__B380AC4, 和开发者本人没有关联而失败, 所以建议开发者只是搬运这个工程的代码到新工程后后去打基座.
+3. 本工程已经引入了 nativeplugins, 并且在 manifest.json 里开启了推送配置, 请开发者参照
+4. 重点参照 App.vue 的推送拉起事件 addOpenNotificationListener 监听, 和 pages/index/index.vue 中的注入插件 setOfflinePushConfig 函数, 和 sendMessage 发送消息逻辑
+5. 工程里的具体的 IM 账号, 证书都需要开发者替换.
+
+此外推送还有其他注意事项
+
+4. 华为注册厂商推送服务时，包含 agconnect-services.json 文件。您需要下载该文件，并将其放至您的 uni-app 应用根目录下的 nativeplugins/NIMUniPlugin/android/assets 文件夹下。
+5. 荣耀注册厂商推送服务时，包含 mcs-services.json 文件。您需下载该文件，并将其放至您的 uni-app 应用根目录下的 nativeplugins/NIMUniPlugin/android/assets 文件夹下。
