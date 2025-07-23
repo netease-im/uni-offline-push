@@ -1,5 +1,5 @@
 {
-  "name": "uni-offline-push",
+  "name": "uni-offline-push-playground",
   "version": "1.0.0",
   "description": "UniApp推送Demo",
   "main": "main.js",
@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "nim-web-sdk-ng": "^0.17.0"
+    "nim-web-sdk-ng": "^10.9.30"
   }
 }
